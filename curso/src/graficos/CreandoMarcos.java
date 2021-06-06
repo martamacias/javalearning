@@ -1,4 +1,4 @@
-package Curso.src.graficos;
+package curso.src.graficos;
 
 import javax.swing.*;
 
