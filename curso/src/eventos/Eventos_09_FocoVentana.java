@@ -29,7 +29,6 @@ public class Eventos_09_FocoVentana  extends JFrame implements WindowFocusListen
     // que ventana tiene el foco
     @Override
     public void windowGainedFocus(WindowEvent e) {
-        // TODO Auto-generated method stub
         
         if (e.getSource()==marco1) { marco1.setTitle("Tengo el foco!");}
         else { marco2.setTitle("Tengo el foco!");}
@@ -37,7 +36,6 @@ public class Eventos_09_FocoVentana  extends JFrame implements WindowFocusListen
 
     @Override
     public void windowLostFocus(WindowEvent e) {
-        // TODO Auto-generated method stub
         
         if (e.getSource()==marco1) { marco1.setTitle("");}
         else { marco2.setTitle("");}
