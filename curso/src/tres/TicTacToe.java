@@ -47,24 +47,24 @@ class LaminaTicTac extends JPanel{
             JButton boton = new JButton();
             boton.setBackground(Color.WHITE);
             boton.addActionListener(marcarBoton);
+            boton.setFont(new Font("Ubuntu", 1, 36));
             add(boton);
         }
     }
 
     private int count = 0;
+    private String ficha;
     // ACCION AL CLICAR EL BOTON
     class PonerFicha extends AbstractAction{
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            String ficha = "";
             if (count%2==0){
                 ficha = "X";
             } else {
                 ficha = "O";
             }
             putValue(Action.NAME, ficha);
-            setFont(new Font("Ubuntu", 1, 36));
             count ++;
         }
     }
