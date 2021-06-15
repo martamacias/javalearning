@@ -26,16 +26,6 @@ class MarcoTicTac extends JFrame{
 // LAMINA
 class LaminaTicTac extends JPanel{
 
-    /*JButton boton1 = new JButton();
-    JButton boton2 = new JButton();
-    JButton boton3 = new JButton();
-    JButton boton4 = new JButton();
-    JButton boton5 = new JButton();
-    JButton boton6 = new JButton();
-    JButton boton7 = new JButton();
-    JButton boton8 = new JButton();
-    JButton boton9 = new JButton();*/
-
     public LaminaTicTac(){
         setLayout(new GridLayout(3,3,10,10));
 
@@ -59,12 +49,13 @@ class LaminaTicTac extends JPanel{
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            JButton boton = (JButton) e.getSource();
             if (count%2==0){
                 ficha = "X";
             } else {
                 ficha = "O";
             }
-            putValue(Action.NAME, ficha);
+            boton.setText(ficha);
             count ++;
         }
     }
