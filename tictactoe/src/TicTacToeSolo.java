@@ -8,27 +8,27 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class TicTacToePairs {
+public class TicTacToeSolo {
     public static void main(String[] args) {
-        new MarcoTicTacS();
+        new MarcoTicTac();
     }
 }
 
 // MARCO
-class MarcoTicTac extends JFrame{
-    public MarcoTicTac(){
+class MarcoTicTacS extends JFrame{
+    public MarcoTicTacS(){
         setVisible(true);
         setLocation(500, 100);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        LaminaTicTacS lamina = new LaminaTicTacS();
+        LaminaTicTac lamina = new LaminaTicTac();
         add(lamina);
         setSize(400, 450);
     }
 }
 
 // LAMINA
-class LaminaTicTac extends JPanel{
+class LaminaTicTacS extends JPanel{
     //botones
     private JButton boton1 = new JButton();
     private JButton boton2 = new JButton();
@@ -49,7 +49,7 @@ class LaminaTicTac extends JPanel{
     private int counter = 0;
 
     // donde van los botones
-    public LaminaTicTac(){
+    public LaminaTicTacS(){
 
         setLayout(new BorderLayout());
         add(laminaBotones);
@@ -104,6 +104,9 @@ class LaminaTicTac extends JPanel{
                 index.replace(id, "null", ficha);
             }
 
+            if (count==1){fichaPC1();}
+            
+
             ganador = HayGanador();
             if (ganador){
                 reset.setText("Han ganado las "+boton.getText()+"!! RESET");
@@ -114,6 +117,21 @@ class LaminaTicTac extends JPanel{
                 BloquearBotones();
             }
             
+        }
+
+        private void fichaPC1() {
+            if (count%2==0){ ficha = "X";}
+            else { ficha = "O";}
+
+            if (!index.get("1").equals("null") || !index.get("3").equals("null") || !index.get("7").equals("null") ||!index.get("9").equals("null")) {
+                botones.get(4).setText(ficha);
+                index.replace(""+5, "null", ficha);
+                count ++;
+            } else if (!index.get("5").equals("null")){
+                botones.get(0).setText(ficha);
+                index.replace(""+1, "null", ficha);
+                count ++;
+            }
         }
 
         private void BloquearBotones() {
@@ -136,7 +154,6 @@ class LaminaTicTac extends JPanel{
             ganador = false;
             count = 0;
         }
-
     }
 
     private boolean HayGanador(){

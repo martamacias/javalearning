@@ -1,5 +1,6 @@
 package curso.src.swing;
 
+import java.awt.*;
 import javax.swing.*;
 
 public class Swing_13_Spinner {
@@ -15,7 +16,11 @@ class LaminaSpinner extends JPanel{
     private JSpinner spinner;
 
     public LaminaSpinner(){
-        spinner = new JSpinner();
+        //spinner = new JSpinner(); //por defecto
+        // conseguir las fuentes de letra
+        String lista[]= GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
+        spinner = new JSpinner(new SpinnerListModel(lista));
+        spinner.setPreferredSize(new Dimension(200,20));
 
         add(spinner);
     }
